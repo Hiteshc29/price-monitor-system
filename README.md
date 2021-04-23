@@ -1,4 +1,4 @@
-# Price-Tracker-Application
+# Price-Monitoring-System
 Discount Tracker app with Python/Django
 
 ## Getting Started
