@@ -1,0 +1,497 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&family=Roboto&display=swap');
+
+        :root {
+            --primary: #5b5f97;
+            --primary-dark: #565989;
+            --primary-light: #dadcf2;
+            --primary-text: #383a52;
+            --secondary: #4197de;
+            --secondary-dark: #1963a2;
+            --secondary-light: #b7d9f5;
+            --secondary-text: #153c5e;
+            --light: #f3f5f6;
+            --dark: #292c2e;
+            --grey: #58595b;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-radius: 5px;
+            color: var(--light);
+        }
+
+        .btn-primary:focus,
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: var(--light);
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--light);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .navbar {
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 8vh;
+            padding: 0 5vw 0 5vw;
+        }
+
+        .navbar .navbar-brand {
+            padding-top: 1vh;
+            font-family: 'Libre Barcode 39 Extended Text', cursive;
+            font-size: 5vh;
+            text-decoration: none;
+            color: var(--dark);
+            background: linear-gradient(0deg, var(--grey), #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar .navbar-brand:focus,
+        .navbar .navbar-brand:hover {
+            background: linear-gradient(180deg, var(--grey), #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar .nav {
+            font-size: 2vh;
+            font-weight: 600;
+        }
+
+        .navbar .navbar-item {
+            padding: 1vh 2vw 1vh 2vw;
+            text-decoration: none;
+            color: var(--grey);
+        }
+
+        .navbar .navbar-item:focus,
+        .navbar .navbar-item:hover {
+            color: #000000;
+        }
+
+        .navbar .navbar-btn {
+            padding: 1vh 1vw 1vh 1vw;
+            border: 1px solid var(--secondary-dark);
+            border-radius: 2px;
+            color: var(--secondary-dark);
+        }
+
+        .navbar .navbar-btn:focus,
+        .navbar .navbar-btn:hover {
+            background-color: var(--secondary-dark);
+            color: var(--light);
+        }
+
+        .notification {
+            display: flex;
+            align-content: center;
+            font-size: 2vh;
+            padding: 1vh 5vw 1vh 5vw;
+        }
+
+        .notification a {
+            text-decoration: none;
+        }
+
+        .notification a:focus,
+        .notification a:hover {
+            text-decoration: underline;
+        }
+
+        .primary-notification {
+            background-color: var(--primary-light);
+        }
+
+        .primary-notification a {
+            color: var(--primary-text);
+        }
+
+        .secondary-notification {
+            background-color: var(--secondary-light);
+        }
+
+        .secondary-notification a {
+            color: var(--secondary-text);
+        }
+
+        .section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5vh 5vw 5vh 5vw;
+        }
+
+        .section .info {
+            width: 38%;
+            padding: 2vh 0 2vh 0;
+        }
+
+        .section .info .title {
+            margin: 0;
+            padding: 2vh 0 2vh 0;
+            font-size: 5vh;
+            font-weight: 500;
+        }
+
+        .section .info .subtitle {
+            margin: 0;
+            margin-bottom: 6vh;
+            font-size: 2vh;
+            padding: 0.5vh 0 0.5vh 0;
+        }
+
+        .section .info .btn {
+            padding: 1vh 1vw 1vh 1vw;
+            font-size: 2vh;
+            text-decoration: none;
+        }
+
+        .section .illustration {
+            width: 40%;
+            height: auto;
+            padding: 2vh 0 2vh 0;
+        }
+
+        .center-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 82vh
+        }
+
+        .center-form form {
+            display: flex;
+            width: 40%;
+            flex-direction: column;
+        }
+
+        .center-form form label {
+            padding: 1vh 0 1vh 0;
+            font-size: 2vh;
+        }
+
+        .center-form form input {
+            padding-top: 1vh;
+            margin: 1vh 0 2vh 0;
+            font-size: 2vh;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            border-bottom: 1px solid black;
+        }
+
+        .center-form form input[type=submit] {
+            width: 30%;
+            font-size: 2vh;
+            padding: 1.5vh 2vw 1.5vh 2vw;
+            border: 0;
+            background-color: var(--primary);
+            border-radius: 5px;
+            color: var(--light);
+        }
+
+        .track-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .track-form .data {
+            display: flex;
+            width: 100%;
+        }
+
+        .track-form .data .ele {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            padding: 0 5% 5% 0;
+            font-size: 2.2vh;
+        }
+
+        .ele input {
+            font-size: 2.2vh;
+            padding: 1vh;
+        }
+
+        .track-form input[type="submit"] {
+            width: 20%;
+            font-size: 2vh;
+            padding: 1.5vh 2vw 1.5vh 2vw;
+            border: 0;
+            background-color: var(--primary);
+            border-radius: 5px;
+            color: var(--light);
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 6vh;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        footer a {
+            font-family: 'Libre Barcode 39 Extended Text', cursive;
+            font-size: 3vh;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .section .info .title {
+                font-size: 3vh;
+            }
+
+            .section .info .subtitle {
+                font-size: 1.5vh;
+            }
+
+            .section .info .btn {
+                font-size: 1.5vh;
+            }
+
+            .center-form form {
+                width: 60%;
+            }
+
+            .track-form .data {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .track-form .data .ele {
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar .navbar-btn {
+                padding: 1vh 2vw 1vh 2vw;
+            }
+
+            .section {
+                flex-direction: column;
+            }
+
+            .section .info {
+                width: 100%;
+            }
+
+            .section .info .btn {
+                padding: 1vh 2vw 1vh 2vw;
+            }
+
+            .section .illustration {
+                width: 50%;
+            }
+
+            .center-form form {
+                width: 80%;
+            }
+        }
+
+        .responsive-table {
+            width: 100%;
+            margin-bottom: 1.5em;
+        }
+
+        .responsive-table thead {
+            position: absolute;
+            clip: rect(1px 1px 1px 1px);
+            /* IE6, IE7 */
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0;
+            border: 0;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        .responsive-table thead th {
+            background-color: var(--primary);
+            border: 1px solid var(--primary);
+            font-weight: normal;
+            text-align: center;
+            color: white;
+        }
+
+        .responsive-table thead th:first-of-type {
+            text-align: left;
+        }
+
+        .responsive-table tbody,
+        .responsive-table tr,
+        .responsive-table th,
+        .responsive-table td {
+            display: block;
+            padding: 0;
+            text-align: left;
+            white-space: normal;
+        }
+
+        .responsive-table th,
+        .responsive-table td {
+            padding: .5em;
+            vertical-align: middle;
+        }
+
+        .responsive-table caption {
+            margin-bottom: 1em;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .responsive-table tfoot {
+            font-size: .8em;
+            font-style: italic;
+        }
+
+        .responsive-table tbody tr {
+            margin-bottom: 1em;
+            border: 2px solid var(--primary);
+        }
+
+        .responsive-table tbody tr:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .responsive-table tbody th[scope="row"] {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .responsive-table tbody td[data-type=currency] {
+            text-align: right;
+        }
+
+        .responsive-table tbody td[data-title]:before {
+            content: attr(data-title);
+            float: left;
+            font-size: .8em;
+            color: rgba(94, 93, 82, 0.75);
+        }
+
+        .responsive-table tbody td {
+            text-align: right;
+            border-bottom: 1px solid var(--primary);
+        }
+
+
+        @media (min-width: 52em) {
+            .responsive-table {
+                font-size: .9em;
+            }
+
+            .responsive-table thead {
+                position: relative;
+                clip: auto;
+                height: auto;
+                width: auto;
+                overflow: auto;
+            }
+
+            .responsive-table tr {
+                display: table-row;
+            }
+
+            .responsive-table th,
+            .responsive-table td {
+                display: table-cell;
+                padding: .5em;
+            }
+
+            .responsive-table caption {
+                font-size: 1.5em;
+            }
+
+            .responsive-table tbody {
+                display: table-row-group;
+            }
+
+            .responsive-table tbody tr {
+                display: table-row;
+                border-width: 1px;
+            }
+
+            .responsive-table tbody tr:nth-of-type(even) {
+                background-color: rgba(94, 93, 82, 0.1);
+            }
+
+            .responsive-table tbody th[scope="row"] {
+                background-color: transparent;
+                color: #5e5d52;
+                text-align: left;
+            }
+
+            .responsive-table tbody td {
+                text-align: center;
+            }
+
+            .responsive-table tbody td[data-title]:before {
+                content: none;
+            }
+        }
+
+        @media (min-width: 62em) {
+            .responsive-table {
+                font-size: 1em;
+            }
+
+            .responsive-table th,
+            .responsive-table td {
+                padding: .75em .5em;
+            }
+
+            .responsive-table tfoot {
+                font-size: .9em;
+            }
+        }
+
+        @media (min-width: 75em) {
+
+            .responsive-table th,
+            .responsive-table td {
+                padding: .75em;
+            }
+        }
+
+        div.container {
+            min-height: 82vh;
+        }
+    </style>
+
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">BARGAIN</a>
+        <div class="nav">
+            <a href="http://127.0.0.1:5000/logout" class="navbar-item">Logout</a>
+        </div>
+    </nav>
+
+
+    <div class="container py-4">
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

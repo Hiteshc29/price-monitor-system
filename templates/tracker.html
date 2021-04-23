@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary" type="submit">Send</button>
+</form>
+
+<section class="section">
+    <table class="responsive-table">
+        <caption>Product Tracking List</caption>
+        <thead>
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Requested Price</th>
+                <th scope="col">Last Price</th>
+                <th scope="col">Discount Price</th>
+                <th scope="col">Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <th scope="row">{{item.title}}</th>
+                <td data-title="Requested Price">{{item.requested_price}}</td>
+                <td data-title="Last Price" data-type="currency">{{item.last_price}}</td>
+                <td data-title="Discount Price" data-type="currency">{{item.discount_price}}</td>
+                <td data-title="Date">{{item.date}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+<footer>
+    <a href="#">BARGAIN</a>
+</footer>
+{% endblock %}
